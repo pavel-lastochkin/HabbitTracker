@@ -9,11 +9,18 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        VStack(spacing: 16) {
+            Text("Habit Tracker")
+                .font(.largeTitle)
+
+            Text("My Habits")
+                .font(.headline)
+
+            Text("🏋️ Gym")
+
+            Text("📚 Read")
+
+            Text("🎾 Tennis")
         }
         .padding()
     }
