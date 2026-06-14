@@ -14,13 +14,16 @@ struct ContentView: View {
 
     var body: some View {
         NavigationStack {
-            List(store.habits) { habit in
-                HStack {
-                    Text(habit.name)
-                    Spacer()
-                    Toggle("", isOn: completionBinding(for: habit))
-                        .labelsHidden()
+            List {
+                ForEach(store.habits) { habit in
+                    HStack {
+                        Text(habit.name)
+                        Spacer()
+                        Toggle("", isOn: completionBinding(for: habit))
+                            .labelsHidden()
+                    }
                 }
+                .onDelete(perform: store.deleteHabits)
             }
             .navigationTitle("Habit Tracker")
             .toolbar {

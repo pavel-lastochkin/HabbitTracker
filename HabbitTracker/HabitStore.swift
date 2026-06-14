@@ -31,6 +31,12 @@ final class HabitStore {
         habits[index].isCompleted.toggle()
     }
 
+    func deleteHabits(at offsets: IndexSet) {
+        for index in offsets.sorted(by: >) {
+            habits.remove(at: index)
+        }
+    }
+
     private func load() {
         if let data = UserDefaults.standard.data(forKey: Self.storageKey),
            let decoded = try? JSONDecoder().decode([Habit].self, from: data) {
